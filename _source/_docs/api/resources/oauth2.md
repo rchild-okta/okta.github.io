@@ -349,6 +349,7 @@ prompt         | Can be either ``none`` or ``login``. The value determines if Ok
 nonce          | Specifies a nonce that is reflected back in the ID Token. It is used to mitigate replay attacks. | Query        | String   | TRUE     |
 code_challenge | Specifies a challenge of [PKCE](#parameter-details). The challenge is verified in the Access Token request.  | Query        | String   | FALSE    |
 code_challenge_method | Specifies the method that was used to derive the code challenge. Only S256 is supported.  | Query        | String   | FALSE    |
+login_hint | A username to prepopulate if prompting for authentication.  | Query        | String   | FALSE    |
 
 #### Parameter Details
 
@@ -473,8 +474,6 @@ http://www.example.com/#error=invalid_scope&error_description=The+requested+scop
 
 
 The API takes a grant type of either *authorization_code*, *password*, *refresh_token*, or *client_credentials* and the corresponding credentials and returns back an Access Token. A Refresh Token is returned if *offline_access* scope is requested using authorization_code, password, or refresh_token grant type. Additionally, using the authorization_code grant type returns an ID Token if the *openid* scope is requested.
-
-> Note:  No errors occur if you use this endpoint, but it isn’t useful until custom scopes or resource servers are available. We recommend you wait until custom scopes and resource servers are available.
 
 #### Request Parameters
 
